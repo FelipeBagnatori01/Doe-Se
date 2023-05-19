@@ -11,12 +11,12 @@
     <body>
         <div class="content-bar">
             <div class="title">
-                <img class="heart" src="{% static 'feed/img/heart_white.png' %}">
+                <img class="heart" alt="Doe-Se" src="{% static 'feed/img/heart_white.png' %}">
             </div>
             <div class="options">
-                <button class="btn"><i class="icon fa fa-home"></i>Início</button>
-                <button class="btn"><i class="icon fa fa-map"></i>Mapa</button>
-                <button class="btn"><i class="icon fa fa-gear"></i>Configurações</button>
+                <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
+                <button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button>
+                <a href="/config"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
             </div>
         </div>
         <div class="content-main">

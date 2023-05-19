@@ -8,5 +8,17 @@ def show_feed(request):
     elif request.method == "POST":
         return HttpResponse("Resposta ao post")
 
+def show_feed_org(request):
+    return render(request, 'config.html')
+
 def create_post(request):
     return HttpResponse('A')
+
+def config(request):
+    return render(request, 'config.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def landing(request):
+    return render(request, 'landing.html')

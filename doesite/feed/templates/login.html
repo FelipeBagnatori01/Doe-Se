@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <link rel="stylesheet" href="{% static 'feed/css/login.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="imgcontainer">
+            <img src="{% static 'feed/img/heart_white.png' %}" alt="Doe-se" class="heart">
+        </div>
+        <form action="action_page.php" method="post">
+            
+            <div class="container">
+                <label for="uname"><b>E-mail</b></label>
+                <input type="text" placeholder="Insira um e-mail de usuário" name="uname" required>
+
+                <label for="psw"><b>Senha</b></label>
+                <input type="password" placeholder="Insira a senha" name="psw" required>
+
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <a href="/"><button type="button" class="cancelbtn">Cancelar</button></a>
+                <span class="fgpsw"><a href="#">Esqueci minha senha</a></span>
+            </div>
+        </form>
+    </body>
+</html>

@@ -12,51 +12,6 @@ body {
     overflow: hidden;
 }
 
-/**** Sidebar *****/
-.content-bar {
-    background-color: #EB5B6C;
-    height: 100%;
-}
-.content-bar *{
-    background-color: #EB5B6C;
-}
-.options{
-    height: 80vh;
-    display: grid;
-}
-.title{
-    height:200px;
-    width: auto;
-    grid-template-columns: 60% 40%;
-    display: grid;
-}
-.heart{
-    width: 200px;
-    float: right;
-}
-.title > div{
-    height: 100%;
-    width: 100%;
-    vertical-align: middle;
-    text-align: left;
-    color: white;
-    font-weight: bold;
-}
-.btn {
-    border: none;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-}
-.btn:hover {
-    background-color: #e45263;
-}
-.icon {
-    float:left;
-    background: rgba(255, 255, 255, 0);
-}
-
 /******* feed ***********/
 .content-main{
     width: 100%;
@@ -65,6 +20,7 @@ body {
     scrollbar-color: #e45263 #EB5B6C;
     padding: 10px;
 }
+
 
 /******** post *********/
 .post{
@@ -132,10 +88,103 @@ body {
         margin: 0px 0px 0px 0px;
         display: grid;
     }
+    /**** Sidebar *****/
+    .content-bar {
+        background-color: #EB5B6C;
+        height: 100%;
+    }
+    .content-bar *{
+        background-color: #EB5B6C;
+    }
+    .options{
+        height: 80vh;
+        display: grid;
+    }
+    .title{
+        height:200px;
+        width: auto;
+        grid-template-columns: 60% 40%;
+        display: grid;
+    }
+    .heart{
+        width: 200px;
+        float: right;
+    }
+    .title > div{
+        height: 100%;
+        width: 100%;
+        vertical-align: middle;
+        text-align: left;
+        color: white;
+        font-weight: bold;
+    }
+    .btn {
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+    .btn:hover {
+        background-color: #ec707f;
+    }
+    .btn:active {
+        background-color: #ea8792;
+    }
+    .icon {
+        float:left;
+        background: rgba(255, 255, 255, 0);
+    }
+    .btn-text {
+        background-color: transparent;
+    }
 }
-
-/********** Medium devices only **********
-@media (min-width: 768px) and (max-width: 991px) {
-    
-}*/
   
+@media (max-width: 991px) {
+    /**** Options bar *****/
+    .content-bar {
+        background-color: #EB5B6C;
+        height: 80px;
+        width: 100%;
+        padding: 0;
+        margin: 0px 0px 0px 0px;
+        position: absolute;
+        bottom: 0%;
+    }
+    .options {
+        left: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .heart {
+        display: none;
+    }
+
+    .btn-bar {
+        border: none;
+        color: white;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        padding: 15px;
+        background-color: #EB5B6C;
+        font-size: 30px;
+        /*transform: translate(-50%, 0);*/
+    }
+    .btn-bar:hover {
+        background-color: #ec707f;
+    }
+    .btn-bar:active {
+        background-color: #ea8792;
+    }
+    .btn-bar > i {
+        vertical-align: middle;
+    }
+    .btn-text {
+        color: transparent;
+    }
+}
