@@ -22,3 +22,9 @@ def login(request):
 
 def landing(request):
     return render(request, 'landing.html')
+
+def create_account(request):
+    return render(request, 'create_account.html')
+
+def create_institution(request):
+    return render(request, 'create_institution.html')

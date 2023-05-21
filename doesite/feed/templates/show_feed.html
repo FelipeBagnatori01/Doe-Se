@@ -7,6 +7,13 @@
         <meta name="viewport">
         <link rel="stylesheet" href="{% static 'feed/css/show_feed.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favico/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favico/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favico/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favico/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favico/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#faaaba">
+        <meta name="theme-color" content="#ffffff">
     </head>
     <body>
         <div class="content-bar">
@@ -15,7 +22,7 @@
             </div>
             <div class="options">
                 <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
-                <button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button>
+                <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
                 <a href="/config"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
             </div>
         </div>
@@ -25,9 +32,9 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.
                 <img class="single-image" src="{% static 'feed\img\doacao_de_alimentos.jpg' %}">
                 <div class="post-buttons">
-                    <button class="post-btn"><i class="icon fa fa-heart"></i></button>
-                    <button class="post-btn"><i class="icon fa fa-comment"></i></button>
-                    <button class="post-btn"><i class="icon fa fa-share"></i></button>
+                    <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
+                    <button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>
+                    <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
                 </div>
             </div>
             <div class="post">
@@ -35,18 +42,18 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.
                 <img class="single-image" src="{% static 'feed\img\doacao_de_sangue-2.jpg' %}">
                 <div class="post-buttons">
-                    <button class="post-btn"><i class="icon fa fa-heart"></i></button>
-                    <button class="post-btn"><i class="icon fa fa-comment"></i></button>
-                    <button class="post-btn"><i class="icon fa fa-share"></i></button>
+                    <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
+                    <button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>
+                    <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
                 </div>
             </div>
             <div class="post">
                 <div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">ONG 123</div><div class="at">@ong_123</div></div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.
                 <div class="post-buttons">
-                    <button class="post-btn"><i class="icon fa fa-heart"></i></button>
-                    <button class="post-btn"><i class="icon fa fa-comment"></i></button>
-                    <button class="post-btn"><i class="icon fa fa-share"></i></button>
+                    <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
+                    <button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>
+                    <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
                 </div>
             </div>
         </div>

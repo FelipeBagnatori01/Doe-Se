@@ -77,8 +77,38 @@ body {
     fill: #e45263;
 }
 
+.like, .comm, .shar {
+    font-size: 20px !important;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.like:hover{
+    background-color: #e4526357;
+}
+
+.like:active{
+    color: #e45263;
+}
+
+.comm:hover{
+    background-color: #27b0ff57;
+}
+
+.comm:active{
+    color: #27b0ff;
+}
+
+.shar:hover{
+    background-color: #0eed1d57;
+}
+
+.shar:active{
+    color: #0eed1d;
+}
+
 /********** Large devices only **********/
-@media (min-width: 992px) {
+@media (min-width: 1201px) {
     .content-bar {
         background-color: #EB5B6C;
         height: 100vh;
@@ -143,7 +173,7 @@ body {
     }
 }
   
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
     /**** Options bar *****/
     .content-bar {
         background-color: #EB5B6C;
