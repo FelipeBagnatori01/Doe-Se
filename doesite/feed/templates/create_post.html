@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Doe-Se</title>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <link rel="stylesheet" href="{% static 'feed/css/create_post.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favico/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favico/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favico/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favico/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favico/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#faaaba">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="content-bar">
+            <div class="title">
+                <img class="heart" alt="Doe-Se" src="{% static 'feed/img/heart_white.png' %}">
+            </div>
+            <div class="options">
+                <a href="/feed_org"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
+                <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
+                <a href="/create"><button class="btn btn-bar"><i class="icon fa fa-pencil"></i><div class="btn-text">Criar Publicação</div></button></a>
+                <a href="/config"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
+            </div>
+        </div>
+        <div id="novo-post" class="content-main">
+            <div id="template-post" class="post">
+                <div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div>
+                <form action="action_page.php" method="post">
+                    <div class="container">
+                        <textarea  rows="15" placeholder="Insira seu texto aqui" name="post-text" required maxlength="1000"></textarea>
+                        <div class="post-lower-bar">
+                            <!--<label for="arquivo">Adicionar imagem</label>-->
+                            <input type="file" id="arquivo" name="arquivo" accept="image/png, image/jpeg">
+                            <button type="submit"><i class="icon fa fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -5,7 +5,7 @@
         <title>Doe-Se</title>
         <meta charset="UTF-8">
         <meta name="viewport">
-        <link rel="stylesheet" href="{% static 'feed/css/show_feed.css' %}">
+        <link rel="stylesheet" href="{% static 'feed/css/show_feed_org.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favico/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favico/favicon-32x32.png' %}">
@@ -21,8 +21,9 @@
                 <img class="heart" alt="Doe-Se" src="{% static 'feed/img/heart_white.png' %}">
             </div>
             <div class="options">
-                <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
-                <a href="/feed_org"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
+                <a href="/feed_org"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
+                <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
+                <a href="/create"><button class="btn btn-bar"><i class="icon fa fa-pencil"></i><div class="btn-text">Criar Publicação</div></button></a>
                 <a href="/config"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
             </div>
         </div>

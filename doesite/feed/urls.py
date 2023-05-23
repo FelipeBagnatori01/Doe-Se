@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('feed/', views.show_feed, name="show_feed"),
+    path('feed_org/', views.show_feed_org, name="show_feed_org"),
     path('create/', views.create_post, name="create_post"),
     path('organization/', views.show_feed_org, name="show_feed_org"),
     path('config/', views.config, name="config"),

@@ -9,10 +9,10 @@ def show_feed(request):
         return HttpResponse("Resposta ao post")
 
 def show_feed_org(request):
-    return render(request, 'config.html')
+    return render(request, 'show_feed_org.html')
 
 def create_post(request):
-    return HttpResponse('A')
+    return render(request, 'create_post.html')
 
 def config(request):
     return render(request, 'config.html')
