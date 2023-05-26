@@ -28,3 +28,9 @@ def create_account(request):
 
 def create_institution(request):
     return render(request, 'create_institution.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
+def profile_org(request):
+    return render(request, 'profile_org.html')

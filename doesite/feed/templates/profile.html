@@ -5,7 +5,7 @@
         <title>Doe-Se</title>
         <meta charset="UTF-8">
         <meta name="viewport">
-        <link rel="stylesheet" href="{% static 'feed/css/show_feed.css' %}">
+        <link rel="stylesheet" href="{% static 'feed/css/profile.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favico/apple-touch-icon.png' %}">
         <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favico/favicon-32x32.png' %}">
@@ -27,6 +27,9 @@
             </div>
         </div>
         <div id="scrollable-content" class="content-main">
+            <div id="profile-info" class="profile-info">
+                <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>
+            </div>
             <div id="template-post" class="post">
                 <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.

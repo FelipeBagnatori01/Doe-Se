@@ -18,7 +18,7 @@ body {
     height: 100vh;
     overflow-y: scroll;
     scrollbar-color: #e45263 #EB5B6C;
-    padding: 10px;
+    padding: 0;
 }
 
 
@@ -111,8 +111,6 @@ body {
     color: black;
 }
 
-
-
 a:link { text-decoration: none; }
 
 
@@ -131,7 +129,6 @@ a:active { text-decoration: none; }
     padding: 20px;
     padding-left:100px;
 }
-
 
 /********** Large devices only **********/
 @media (min-width: 1201px) {

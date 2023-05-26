@@ -18,7 +18,7 @@ body {
     height: 100vh;
     overflow-y: scroll;
     scrollbar-color: #e45263 #EB5B6C;
-    padding: 10px;
+    padding: 0;
 }
 
 
@@ -111,8 +111,6 @@ body {
     color: black;
 }
 
-
-
 a:link { text-decoration: none; }
 
 
@@ -131,7 +129,6 @@ a:active { text-decoration: none; }
     padding: 20px;
     padding-left:100px;
 }
-
 
 /********** Large devices only **********/
 @media (min-width: 1201px) {
@@ -158,8 +155,8 @@ a:active { text-decoration: none; }
     }
     .title{
         height:200px;
-        padding-top: auto;
         width: auto;
+        padding-top: auto;
     }
     .heart{
         width: 200px;
@@ -203,7 +200,7 @@ a:active { text-decoration: none; }
         width: 90vw;
         max-width: 100vw;
     }    
-    
+
     /**** Options bar *****/
     .content-bar {
         background-color: #EB5B6C;
@@ -217,7 +214,7 @@ a:active { text-decoration: none; }
     .options {
         left: 50%;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         height: 100%;
     }
     
@@ -246,7 +243,6 @@ a:active { text-decoration: none; }
         vertical-align: middle;
     }
     .btn-text {
-        font-size: 1px;
         display: none;
         color: transparent;
     }
