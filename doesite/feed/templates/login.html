@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <title>Login</title>
+        <title>User_Login</title>
         <meta charset="UTF-8">
         <meta name="viewport">
         <link rel="stylesheet" href="{% static 'feed/css/login.css' %}">
@@ -19,8 +19,8 @@
         <div class="imgcontainer">
             <img src="{% static 'feed/img/heart_white.png' %}" alt="Doe-se" class="heart">
         </div>
-        <form action="action_page.php" method="post">
-            
+        <form action="{% url 'user_logged' %}" method="post">
+            {% csrf_token %}
             <div class="container">
                 <label for="uname"><b>E-mail</b></label>
                 <input type="text" placeholder="Insira um e-mail de usuário" name="uname" required>
@@ -29,10 +29,12 @@
                 <input type="password" placeholder="Insira a senha" name="psw" required>
 
                 <button type="submit">Entrar</button>
+                <a href="/login_org"><button type="button" class="loginbtn">Entrar como instituição</button></a>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
                 <a href="/"><button type="button" class="cancelbtn">Cancelar</button></a>
+                
                 <span class="fgpsw"><a href="#">Esqueci minha senha</a></span>
             </div>
         </form>

@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import User
+from .models import Institute
 
 # Create your views here.
 def show_feed(request):
@@ -20,6 +22,9 @@ def config(request):
 def login(request):
     return render(request, 'login.html')
 
+def login_org(request):
+    return render(request, 'login_org.html')
+
 def landing(request):
     return render(request, 'landing.html')
 
@@ -33,4 +38,32 @@ def profile(request):
     return render(request, 'profile.html')
 
 def profile_org(request):
+    return render(request, 'profile_org.html')
+
+def users(request):
+    new_user = User()
+    new_user.name = request.POST.get('name')
+    new_user.email = request.POST.get('email')
+    new_user.psw = request.POST.get('psw')
+    new_user.save()
+    return render(request, 'landing.html')
+
+def institutes(request):
+    new_institute = Institute()
+    new_institute.name = request.POST.get('name')
+    new_institute.email = request.POST.get('email')
+    new_institute.phone = request.POST.get('phone')
+    new_institute.cep = request.POST.get('cep')
+    new_institute.uf = request.POST.get('uf')
+    new_institute.adress = request.POST.get('adress')
+    new_institute.number = request.POST.get('number')
+    new_institute.psw = request.POST.get('psw')
+    new_institute.description = request.POST.get('description')
+    new_institute.save()
+    return render(request, 'landing.html')
+    
+def user_login(request):
+    return render(request, 'profile.html')
+
+def institution_login(request):
     return render(request, 'profile_org.html')

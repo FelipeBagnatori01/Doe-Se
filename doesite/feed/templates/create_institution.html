@@ -20,8 +20,8 @@
         <div class="imgcontainer">
             <img src="{% static 'feed/img/heart_white.png' %}" alt="Doe-se" class="heart">
         </div>
-        <form action="action_page.php" method="post">
-            
+        <form action="{% url 'institution_created' %}" method="post">
+            {% csrf_token %}
             <div class="container">
                 <label for="uname"><b>Nome</b></label>
                 <input type="text" placeholder="Insira o nome da instituição" name="name" maxlength="40" required>
@@ -30,50 +30,19 @@
                 <input type="email" placeholder="Insira um e-mail de usuário" name="email" maxlength="40" required>
 
                 <label for="uname"><b>Telefone</b></label>
-                <input type="tel" placeholder="Insira um número de telefone para contato" name="tel" maxlength="13" pattern="[0-9]{2}-[0-9]{4-5}-[0-9]{4}" required>
+                <input type="tel" placeholder="Insira um número de telefone para contato" name="phone" maxlength="13" pattern="[0-9]{2}-[0-9]{4-5}-[0-9]{4}" required>
 
                 <label for="uname"><b>CEP</b></label>
                 <input type="number" placeholder="Insira um CEP" name="cep" pattern="\d{5}-\d{3}" required>
 
                 <label for="uname"><b>Estado</b></label>
-                <select id="uf">
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                </select>
+                <input type="text" placeholder="Insira o estado da instituição" name="uf" maxlength="40" required>
 
                 <label for="uname"><b>Endereço</b></label>
-                <input type="text" placeholder="Insira um endereço da instituição" name="endereco" maxlength="40" required>
+                <input type="text" placeholder="Insira um endereço da instituição" name="adress" maxlength="40" required>
 
                 <label for="uname"><b>Número</b></label>
-                <input type="number" placeholder="Insira o número desse endereço" name="numero_endereco" maxlength="10">
-
-                <label for="uname"><b>Complemento</b></label>
-                <input type="text" placeholder="Insira um complemento do endereço (opcional)" name="complemento" maxlength="40">
+                <input type="number" placeholder="Insira o número desse endereço" name="number" maxlength="10">
 
                 <label for="psw"><b>Senha</b></label>
                 <input type="password" placeholder="Insira a senha" name="psw" required>
@@ -83,7 +52,7 @@
                 
                 
                 <label for="uname"><b>Descrição</b></label>
-                <textarea  rows="7" placeholder="Descreva a instituição e os usos das doações" name="desc" required maxlength="1000"></textarea>
+                <textarea  rows="7" placeholder="Descreva a instituição e os usos das doações" name="description" required maxlength="1000"></textarea>
 
                 <button type="submit">Solicitar cadastro</button>
             </div>
