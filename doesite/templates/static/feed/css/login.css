@@ -72,10 +72,18 @@ button:hover {
     background-color: #ffffff;
 }
 
-/* The "Forgot password" text */
+.container2 {
+    padding: 16px;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.other {
+    right: 0;
+}
 .fgpsw {
-    float: right;
-    padding-top: 16px;
+    padding: 4px;
+    right: 0;
     background-color: rgba(red, green, blue, 0);
 }
 
