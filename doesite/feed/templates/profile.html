@@ -14,8 +14,9 @@
         <link rel="mask-icon" href="{% static 'favico/safari-pinned-tab.svg' %}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#faaaba">
         <meta name="theme-color" content="#ffffff">
+        <script src="{% static 'feed/js/show_feed.js' %}"></script>
     </head>
-    <body>
+    <body onload="addListenerScroll();">
         <div class="content-bar">
             <div class="title">
                 <img class="heart" alt="Doe-Se" src="{% static 'feed/img/heart_white.png' %}">
@@ -29,10 +30,11 @@
         <div id="scrollable-content" class="content-main">
             <div id="profile-info" class="profile-info">
                 <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>
+                <button class="follow">Seguir</button>
             </div>
             <div id="template-post" class="post">
                 <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.
+                <div class="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.</div>
                 <img class="single-image" src="{% static 'feed\img\doacao_de_alimentos.jpg' %}">
                 <div class="post-buttons">
                     <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
