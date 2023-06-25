@@ -19,7 +19,7 @@ class Institute(models.Model):
     adress = models.CharField(max_length=50)
     number = models.IntegerField()
     psw = models.CharField(max_length=50)
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=500)
     
     def __str__(self) -> str:
         return self.name
@@ -27,8 +27,5 @@ class Institute(models.Model):
 
 class Post(models.Model):
     text = models.CharField(max_length=50)
-    image = models.IntegerField()
+    image = models.ImageField()
     likes = models.IntegerField()
-
-    def __str__(self) -> str:
-        return self.nome
