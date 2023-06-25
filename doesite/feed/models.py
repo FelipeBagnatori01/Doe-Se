@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class User(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -24,6 +25,9 @@ class Institute(models.Model):
     def __str__(self) -> str:
         return self.name
 
+class Follows(models.Model):
+    follow = models.ForeignKey(Institute, on_delete=models.CASCADE)
+    followers = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Post(models.Model):
     text = models.CharField(max_length=50)
