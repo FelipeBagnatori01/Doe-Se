@@ -24,19 +24,22 @@ def create_post(request):
 @login_required
 def config(request):
     return render(request, 'config.html')
-
+@login_required
 def login(request):
     return render(request, 'login.html')
-
+@login_required
 def login_org(request):
     return render(request, 'login_org.html')
 
+@login_required
 def landing(request):
     return render(request, 'landing.html')
 
+@login_required
 def create_account(request):
     return render(request, 'create_account.html')
 
+@login_required
 def create_institution(request):
     return render(request, 'create_institution.html')
 
@@ -48,7 +51,7 @@ def profile(request):
 def profile_org(request):
     return render(request, 'profile_org.html')
 
-
+@login_required
 def users(request):
     new_user = User()
     new_user.name = request.POST.get('name')
@@ -57,6 +60,7 @@ def users(request):
     new_user.save()
     return render(request, 'landing.html')
 
+@login_required
 def institutes(request):
     new_institute = Institute()
     new_institute.name = request.POST.get('name')
