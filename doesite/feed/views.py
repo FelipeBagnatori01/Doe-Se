@@ -6,6 +6,7 @@ from .models import Institute
 
 # Create your views here.
 
+
 @login_required
 def show_feed(request):
     if request.method == "GET":
@@ -13,13 +14,16 @@ def show_feed(request):
     elif request.method == "POST":
         return HttpResponse("Resposta ao post")
 
+
 @login_required
 def show_feed_org(request):
     return render(request, 'show_feed_org.html')
 
+
 @login_required
 def create_post(request):
     return render(request, 'create_post.html')
+
 
 @login_required
 def config(request):
