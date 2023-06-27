@@ -30,6 +30,10 @@ class Follows(models.Model):
     followers = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Post(models.Model):
+    id = models.AutoField(primary_key=True)
     text = models.CharField(max_length=50)
     image = models.ImageField()
     likes = models.IntegerField()
+
+    def __str__(self) -> str:
+        return self.id
