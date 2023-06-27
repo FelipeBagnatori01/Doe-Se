@@ -24,22 +24,24 @@ def create_post(request):
 @login_required
 def config(request):
     return render(request, 'config.html')
-@login_required
+
+
 def login(request):
     return render(request, 'login.html')
-@login_required
+
+
 def login_org(request):
     return render(request, 'login_org.html')
 
-@login_required
+
 def landing(request):
     return render(request, 'landing.html')
 
-@login_required
+
 def create_account(request):
     return render(request, 'create_account.html')
 
-@login_required
+
 def create_institution(request):
     return render(request, 'create_institution.html')
 
