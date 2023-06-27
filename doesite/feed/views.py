@@ -1,21 +1,27 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import User
 from .models import Institute
 
 # Create your views here.
+
+@login_required
 def show_feed(request):
     if request.method == "GET":
         return render(request, 'show_feed.html')
     elif request.method == "POST":
         return HttpResponse("Resposta ao post")
 
+@login_required
 def show_feed_org(request):
     return render(request, 'show_feed_org.html')
 
+@login_required
 def create_post(request):
     return render(request, 'create_post.html')
 
+@login_required
 def config(request):
     return render(request, 'config.html')
 
@@ -34,11 +40,14 @@ def create_account(request):
 def create_institution(request):
     return render(request, 'create_institution.html')
 
+@login_required
 def profile(request):
     return render(request, 'profile.html')
 
+@login_required
 def profile_org(request):
     return render(request, 'profile_org.html')
+
 
 def users(request):
     new_user = User()
@@ -61,9 +70,11 @@ def institutes(request):
     new_institute.description = request.POST.get('description')
     new_institute.save()
     return render(request, 'landing.html')
-    
+
+@login_required    
 def user_login(request):
     return render(request, 'profile.html')
 
+@login_required
 def institution_login(request):
     return render(request, 'profile_org.html')
