@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'feed',
     'accounts',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,5 @@ LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/user_logged/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
