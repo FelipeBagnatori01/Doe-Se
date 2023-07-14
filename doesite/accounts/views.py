@@ -11,7 +11,3 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/create_account.html'
 
-def logout_view(request):
-    logout(request)
-    return render(request, 'landing.html')
-
