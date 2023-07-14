@@ -126,6 +126,9 @@ button[type="submit"]:hover{
     background-color: #e45263b7;
 }
 button[type="submit"] {
+    margin-right: 20px;
+    position: relative;
+    left: 90%;
     border: 0px;
     margin-top: auto;
     height: 40px;

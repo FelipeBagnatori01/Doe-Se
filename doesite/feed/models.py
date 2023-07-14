@@ -31,9 +31,10 @@ class Follows(models.Model):
 
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
+    creator = models.CharField(max_length=50, default='')
     text = models.CharField(max_length=50)
     image = models.ImageField()
-    likes = models.IntegerField()
-
+    likes = models.IntegerField(default=0)
+ 
     def __str__(self) -> str:
-        return self.id
+        return self.text

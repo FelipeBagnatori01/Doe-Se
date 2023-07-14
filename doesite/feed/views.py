@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import User
 from .models import Institute
+from .models import Post
+from .forms import UploadForm
 
 # Create your views here.
 
@@ -22,7 +24,13 @@ def show_feed_org(request):
 
 @login_required
 def create_post(request):
-    return render(request, 'create_post.html')
+    if request.POST:
+        form = UploadForm(request.POST, request.FILES)
+        print(request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect(show_feed_org)
+    return render(request, 'create_post.html', {'form' : UploadForm})
 
 
 @login_required
@@ -88,3 +96,10 @@ def user_login(request):
 @login_required
 def institution_login(request):
     return render(request, 'profile_org.html')
+
+def upload(request):
+    form = UploadForm(request.POST, request.FILES)
+    return render(request, 'make_post.html')
+
+def fetch_post(request):
+    return render(request, 'show_feed_org.html')

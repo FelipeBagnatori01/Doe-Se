@@ -17,4 +17,5 @@ urlpatterns = [
     path('institution_created/', views.institutes, name="institution_created"),
     path('user_logged/', views.user_login, name="user_logged"),
     path('institution_logged/', views.institution_login, name="institution_logged"),
+    path('upload/', views.upload, name="upload"),
 ]
