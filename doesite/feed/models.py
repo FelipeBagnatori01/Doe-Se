@@ -1,14 +1,6 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
-
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    psw = models.CharField(max_length=50)
-
-    def __str__(self) -> str:
-        return self.name
 
 class Institute(models.Model):
     id = models.AutoField(primary_key=True)
@@ -27,9 +19,15 @@ class Institute(models.Model):
 
 class Follows(models.Model):
     follow = models.ForeignKey(Institute, on_delete=models.CASCADE)
-    followers = models.ForeignKey(User, on_delete=models.CASCADE)
+    followers = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
+    
 class Post(models.Model):
+    id = models.AutoField(primary_key=True)
     text = models.CharField(max_length=50)
     image = models.ImageField()
     likes = models.IntegerField()
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.id
