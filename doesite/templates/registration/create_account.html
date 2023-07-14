@@ -21,7 +21,7 @@
         <div class="imgcontainer">
             <img src="{% static 'feed/img/heart_white.png' %}" alt="Doe-se" class="heart">
         </div>
-        <form action="{% url 'SignUp' %}" method="post">
+        <form action="{% url 'signup' %}" method="post">
             {% csrf_token %}
             <div class="container">
                 {{ form|crispy }}
