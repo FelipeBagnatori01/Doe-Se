@@ -13,5 +13,5 @@ class SignUp(generic.CreateView):
 
 def logout_view(request):
     logout(request)
-    success_url = reverse_lazy('')
+    return render(request, 'landing.html')
 
