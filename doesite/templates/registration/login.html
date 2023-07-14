@@ -20,7 +20,7 @@
         <div class="imgcontainer">
             <img src="{% static 'feed/img/heart_white.png' %}" alt="Doe-se" class="heart">
         </div>
-        <form action="{% url 'user_logged' %}" method="post">
+        <form method="post">
             <div class="container">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ next }}">
