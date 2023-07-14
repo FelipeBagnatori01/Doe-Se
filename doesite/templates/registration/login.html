@@ -1,0 +1,42 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>User_Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <link rel="stylesheet" href="{% static 'feed/css/login.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favico/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favico/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favico/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favico/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favico/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#faaaba">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="imgcontainer">
+            <img src="{% static 'feed/img/heart_white.png' %}" alt="Doe-se" class="heart">
+        </div>
+        <form action="{% url 'user_logged' %}" method="post">
+            <div class="container">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+
+                {{ form|crispy }}
+                <button type="submit">Entrar como usuário</button>
+            </div>
+
+            <div class="container2" style="background-color:#f1f1f1">
+                <a href="/"><button type="button" class="cancelbtn">Cancelar</button></a>
+                
+                <div class="other">
+                    <div class="fgpsw"><a href="#">Esqueci minha senha</a></div>
+                    <div class="fgpsw"><a href="/login_org">Entrar como instituição</a></div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
