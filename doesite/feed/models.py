@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+import json
 
 class Institute(models.Model):
     id = models.AutoField(primary_key=True)
@@ -31,3 +31,19 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.id
+
+    def get_post(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['data'] = json.dumps(
+            [
+                {
+                    'id': obj.id,
+                    'user': obj.user,
+                    'text': obj.text,
+                    'image': obj.image,
+                    'likes': obj.likes
+                }
+                for obj in Post.objects.all()
+            ]
+        )
+        return context
