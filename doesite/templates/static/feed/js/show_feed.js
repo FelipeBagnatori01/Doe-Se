@@ -29,7 +29,7 @@ function drawPost(owner, handle, text, likes, comments){
 
 var text
 var image
-var creator
+var user
 
 const sendSearchData = (post) => {
     $.ajax({
@@ -38,7 +38,7 @@ const sendSearchData = (post) => {
         data: {
             'text': text,
             'image': image,
-            'creator': creator
+            'user': user
         },
         success: (res) => {
             console.log(res)
