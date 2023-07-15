@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.core.serializers import serialize
+from django.http import HttpResponse, JsonResponse
+from .models import User
 from .models import Institute
+from .models import Post
+from .forms import UploadForm
+import json
 
 # Create your views here.
 
@@ -21,7 +26,13 @@ def show_feed_org(request):
 
 @login_required
 def create_post(request):
-    return render(request, 'create_post.html')
+    if request.POST:
+        form = UploadForm(request.POST, request.FILES)
+        print(request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect(show_feed_org)
+    return render(request, 'create_post.html', {'form' : UploadForm})
 
 
 @login_required
@@ -29,10 +40,24 @@ def config(request):
     return render(request, 'config.html')
 
 
+def login(request):
+    return render(request, 'login.html')
+
+
+def login_org(request):
+    return render(request, 'login_org.html')
+
 
 def landing(request):
     return render(request, 'landing.html')
 
+
+def create_account(request):
+    return render(request, 'create_account.html')
+
+
+def create_institution(request):
+    return render(request, 'create_institution.html')
 
 @login_required
 def profile(request):
@@ -42,6 +67,14 @@ def profile(request):
 def profile_org(request):
     return render(request, 'profile_org.html')
 
+@login_required
+def users(request):
+    new_user = User()
+    new_user.name = request.POST.get('name')
+    new_user.email = request.POST.get('email')
+    new_user.psw = request.POST.get('psw')
+    new_user.save()
+    return render(request, 'landing.html')
 
 @login_required
 def institutes(request):
@@ -65,3 +98,14 @@ def user_login(request):
 @login_required
 def institution_login(request):
     return render(request, 'profile_org.html')
+
+def upload(request):
+    form = UploadForm(request.POST, request.FILES)
+    return render(request, 'make_post.html')
+
+def search_results(request):
+    if request.is_ajax():
+        post = request.POST.get('Post')
+        print(post)
+        return JsonResponse({'data': post})
+    return JsonResponse({})
