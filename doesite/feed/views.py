@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.core.serializers import serialize
+from django.http import HttpResponse, JsonResponse
 from .models import User
 from .models import Institute
 from .models import Post
 from .forms import UploadForm
+import json
 
 # Create your views here.
 
@@ -101,5 +103,9 @@ def upload(request):
     form = UploadForm(request.POST, request.FILES)
     return render(request, 'make_post.html')
 
-def fetch_post(request):
-    return render(request, 'show_feed_org.html')
+def search_results(request):
+    if request.is_ajax():
+        post = request.POST.get('Post')
+        print(post)
+        return JsonResponse({'data': post})
+    return JsonResponse({})

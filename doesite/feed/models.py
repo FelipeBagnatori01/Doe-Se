@@ -1,5 +1,5 @@
 from django.db import models
-
+import json
 
 class User(models.Model):
     id = models.AutoField(primary_key=True)
@@ -38,3 +38,21 @@ class Post(models.Model):
  
     def __str__(self) -> str:
         return self.text
+    
+    def get_post(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['data'] = json.dumps(
+            [
+                {
+                    'id': obj.id,
+                    'creator': obj.creator,
+                    'text': obj.text,
+                    'image': obj.image,
+                    'likes': obj.likes
+                }
+                for obj in Post.objects.all()
+            ]
+        )
+
+        return context

@@ -27,6 +27,31 @@ function drawPost(owner, handle, text, likes, comments){
     document.getElementById("scrollable-content").appendChild(clone);
 }
 
+var text
+var image
+var creator
+
+const sendSearchData = (post) => {
+    $.ajax({
+        type: 'Post',
+        url: 'search/',
+        data: {
+            'text': text,
+            'image': image,
+            'creator': creator
+        },
+        success: (res) => {
+            console.log(res)
+        },
+        error: (err) => {
+            console.log(err)
+        }
+    })
+}
+
 function loadPost(){
-    drawPost("pessoa", "@pes", "carregado", "12345", "985");
+    var pos;
+    sendSearchData(pos);
+    console.log(pos);
+    drawPost("pessoa", "@pes", text, "12345", "985");
 }  
