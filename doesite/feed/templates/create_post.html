@@ -30,14 +30,16 @@
         <div id="novo-post" class="content-main">
             <div id="template-post" class="post">
                 <div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div>
-                <form action="action_page.php" method="post">
+                <form action="{% url 'create_post' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form}}
                     <div class="container">
-                        <textarea  rows="15" placeholder="Insira seu texto aqui" name="post-text" required maxlength="1000"></textarea>
-                        <div class="post-lower-bar">
+                        <!--<textarea  rows="15" placeholder="Insira seu texto aqui" id="post-text" name="post-text" required maxlength="1000"></textarea>-->
+                        <!--<div class="post-lower-bar">-->
+                            <!--<input type="file" id="arquivo" name="arquivo" accept="image/png, image/jpeg">-->
                             <!--<label for="arquivo">Adicionar imagem</label>-->
-                            <input type="file" id="arquivo" name="arquivo" accept="image/png, image/jpeg">
                             <button type="submit"><i class="icon fa fa-paper-plane"></i></button>
-                        </div>
+                        <!--</div>-->
                     </div>
                 </form>
             </div>

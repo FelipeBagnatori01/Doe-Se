@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.serializers import serialize
 from django.http import HttpResponse, JsonResponse
-from .models import User
 from .models import Institute
 from .models import Post
 from .forms import UploadForm
@@ -109,3 +108,4 @@ def search_results(request):
         print(post)
         return JsonResponse({'data': post})
     return JsonResponse({})
+
