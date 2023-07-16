@@ -1,7 +1,7 @@
 {% load static %}
 {% block scripts %}
 <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="{% static 'feed/js/show_feed.js' %}" defer></script>
+<!--<script src="{% static 'feed/js/show_feed.js' %}"></script>-->
 {% endblock scripts %}
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,24 +20,25 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body onload="addListenerScroll();">
+
         <div class="content-bar">
             <div class="title">
                 <img class="heart" alt="Doe-Se" src="{% static 'feed/img/heart_white.png' %}">
             </div>
             <div class="options">
-                <a href="/feed"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
-                <a href="/feed_org"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
-                <a href="/config"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
+                <a href="/feed/"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
+                <a href="/feed_org/"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
+                <a href="/config/"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
             </div>
         </div>
+
         <div id="scrollable-content" class="content-main">
-            <div id="template-post" class="post">
-                <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>
+            <!--<div class="post">
+                <a href="/profile_org" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>
                 <div class="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.</div>
                 <img class="single-image" src="{% static 'feed\img\doacao_de_alimentos.jpg' %}">
                 <div class="post-buttons">
-                    <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
-                    <button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>
+                    <button class="post-btn"><i class="icon like fa fa-heart">&nbsp5423</i></button>
                     <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
                 </div>
             </div>
@@ -46,8 +47,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.
                 <img class="single-image" src="{% static 'feed\img\doacao_de_sangue-2.jpg' %}">
                 <div class="post-buttons">
-                    <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
-                    <button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>
+                    <button class="post-btn"><i class="icon like fa fa-heart">&nbsp5423</i></button>
                     <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
                 </div>
             </div>
@@ -55,11 +55,24 @@
                 <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">ONG 123</div><div class="at">@ong_123</div></div></a>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna velit, auctor nec nibh ac, finibus tempor ligula. Proin condimentum blandit semper. Ut libero elit, vulputate vitae mauris at, feugiat iaculis mi. Sed a diam nec arcu rhoncus maximus. Aenean ac nisl orci. Aenean eget lectus vel sem viverra semper. Nulla fermentum, est non posuere vestibulum, leo neque suscipit enim, id lacinia risus leo vel risus.
                 <div class="post-buttons">
-                    <button class="post-btn"><i class="icon like fa fa-heart">5423</i></button>
-                    <button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>
+                    <button class="post-btn"><i class="icon like fa fa-heart">&nbsp5423</i></button>
+                    <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
+                </div>
+            </div>-->
+            {% for post in posts %}
+            <div id="template-post" class="post">
+                <a href="/profile/{{post.user}}" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">{{post.user}}</div><div class="at">@{{post.user}}</div></div></a>
+                <div class="description-text">{{post.text}}</div>
+                {% if post.image %}
+                    <img class="single-image" src="{{post.image.url}}">
+                {% endif %}
+                <div class="post-buttons">
+                    <a href="/like/{{post.id}}"><button class="post-btn"><i class="icon like fa fa-heart">&nbsp{{post.likes}}</i></button></a>
+                    <!--<button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>-->
                     <button class="post-btn"><i class="icon shar fa fa-share"></i></button>
                 </div>
             </div>
+            {% endfor %}
         </div>
 
     </body>

@@ -5,6 +5,8 @@ from django.http import HttpResponse, JsonResponse
 from .models import Institute
 from .models import Post
 from .forms import UploadForm
+from django.db import models
+from django.contrib.auth import get_user_model
 import json
 
 # Create your views here.
@@ -13,14 +15,16 @@ import json
 @login_required
 def show_feed(request):
     if request.method == "GET":
-        return render(request, 'show_feed.html')
+        posts = Post.objects.all()
+        return render(request, 'show_feed.html', {'posts':posts})
     elif request.method == "POST":
         return HttpResponse("Resposta ao post")
 
 
 @login_required
 def show_feed_org(request):
-    return render(request, 'show_feed_org.html')
+    posts = Post.objects.all()
+    return render(request, 'show_feed_org.html', {'posts':posts})
 
 
 @login_required
@@ -29,10 +33,21 @@ def create_post(request):
         form = UploadForm(request.POST, request.FILES)
         print(request.FILES)
         if form.is_valid():
-            form.save()
+            new = form.save(commit=False)
+            new.user = request.user
+            new.save()
         return redirect(show_feed_org)
     return render(request, 'create_post.html', {'form' : UploadForm})
 
+@login_required
+def like_postSF(request, post_id):
+    Post.objects.filter(pk=post_id).update(likes = Post.objects.get(pk=post_id).likes+1)
+    return redirect(show_feed)
+
+@login_required
+def like_postSFO(request, post_id):
+    Post.objects.filter(pk=post_id).update(likes = Post.objects.get(pk=post_id).likes+1)
+    return redirect(show_feed_org)
 
 @login_required
 def config(request):
@@ -59,21 +74,23 @@ def create_institution(request):
     return render(request, 'create_institution.html')
 
 @login_required
-def profile(request):
-    return render(request, 'profile.html')
+def profile(request, user_id):
+    posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id))
+    return render(request, 'profile.html', {'posts':posts, 'user_id':user_id})
 
 @login_required
-def profile_org(request):
-    return render(request, 'profile_org.html')
+def profile_org(request, user_id):
+    posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id))
+    return render(request, 'profile_org.html', {'posts':posts, 'user_id':user_id})
 
-@login_required
-def users(request):
-    new_user = User()
-    new_user.name = request.POST.get('name')
-    new_user.email = request.POST.get('email')
-    new_user.psw = request.POST.get('psw')
-    new_user.save()
-    return render(request, 'landing.html')
+#@login_required
+#def users(request):
+#    new_user = User()
+#    new_user.name = request.POST.get('name')
+#    new_user.email = request.POST.get('email')
+#    new_user.psw = request.POST.get('psw')
+#    new_user.save()
+#    return render(request, 'landing.html')
 
 @login_required
 def institutes(request):
@@ -92,7 +109,7 @@ def institutes(request):
 
 @login_required    
 def user_login(request):
-    return render(request, 'profile.html')
+    return redirect(show_feed)
 
 @login_required
 def institution_login(request):
@@ -103,9 +120,5 @@ def upload(request):
     return render(request, 'make_post.html')
 
 def search_results(request):
-    if request.is_ajax():
-        post = request.POST.get('Post')
-        print(post)
-        return JsonResponse({'data': post})
-    return JsonResponse({})
-
+    posts = Post.objects.all()
+    return render(request, 'show_feed.html', {'posts':posts})
