@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.serializers import serialize
 from django.http import HttpResponse, JsonResponse
-from .models import Institute
-from .models import Post, Follows
+from .models import *
 from .forms import UploadForm
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -129,7 +128,7 @@ def search(request):
     search = request.GET.get('search')
 
     if search:
-        users = get_user_model().objects.filter(title_icontains=search)
+        profiles = get_user_model().objects.filter(username__icontains=search)
     else: 
         profiles = get_user_model().objects.all()
 
