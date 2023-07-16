@@ -125,7 +125,14 @@ def upload(request):
 
 @login_required
 def search(request):
-    profiles = get_user_model().objects.all()
+
+    search = request.GET.get('search')
+
+    if search:
+        users = get_user_model().objects.filter(title_icontains=search)
+    else: 
+        profiles = get_user_model().objects.all()
+
     return render(request, 'search.html', {'profiles':profiles})
 
 @login_required
