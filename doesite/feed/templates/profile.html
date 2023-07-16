@@ -25,14 +25,18 @@
             </div>
             <div class="options">
                 <a href="/feed/"><button class="btn btn-bar"><i class="icon fa fa-home"></i><div class="btn-text">Início</div></button></a>
-                <a href="/feed_org/"><button class="btn btn-bar"><i class="icon fa fa-map"></i><div class="btn-text">Mapa</div></button></a>
+                <a href="/search/"><button class="btn btn-bar"><i class="icon fa fa-search"></i><div class="btn-text">Pesquisar</div></button></a>
                 <a href="/config/"><button class="btn btn-bar"><i class="icon fa fa-gear"></i><div class="btn-text">Configurações</div></button></a>
             </div>
         </div>
         <div id="scrollable-content" class="content-main">
             <div id="profile-info" class="profile-info">
                 <a href="/profile/{{user_id}}" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">{{user_id}}</div><div class="at">@{{user_id}}</div></div></a>
-                <button class="follow">Seguir</button>
+                {% if post.follow %}
+                <a href="/follow/{{user_id}}" class="profile-btn"><button class="follow">Deixar de Seguir</button></a>
+                {% else %}
+                <a href="/follow/{{user_id}}" class="profile-btn"><button class="follow">Seguir</button></a>
+                {% endif %}
             </div>
             <!--<div id="template-post" class="post">
                 <a href="/profile" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div></a>

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.serializers import serialize
 from django.http import HttpResponse, JsonResponse
 from .models import Institute
-from .models import Post
+from .models import Post, Follows
 from .forms import UploadForm
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -76,21 +76,24 @@ def create_institution(request):
 @login_required
 def profile(request, user_id):
     posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id))
-    return render(request, 'profile.html', {'posts':posts, 'user_id':user_id})
+    follow = False
+    return render(request, 'profile.html', {'posts':posts, 'user_id':user_id, 'follow':follow})
 
 @login_required
 def profile_org(request, user_id):
     posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id))
-    return render(request, 'profile_org.html', {'posts':posts, 'user_id':user_id})
+    follow = True
+    return render(request, 'profile_org.html', {'posts':posts, 'user_id':user_id, 'follow':follow})
 
-#@login_required
-#def users(request):
-#    new_user = User()
-#    new_user.name = request.POST.get('name')
-#    new_user.email = request.POST.get('email')
-#    new_user.psw = request.POST.get('psw')
-#    new_user.save()
-#    return render(request, 'landing.html')
+@login_required
+def follow(request, user_id):
+    # adicionar follow
+    return redirect(profile)
+
+@login_required
+def follow_org(request, user_id):
+    # adicionar follow
+    return redirect(profile_org)
 
 @login_required
 def institutes(request):
@@ -119,6 +122,10 @@ def upload(request):
     form = UploadForm(request.POST, request.FILES)
     return render(request, 'make_post.html')
 
-def search_results(request):
-    posts = Post.objects.all()
-    return render(request, 'show_feed.html', {'posts':posts})
+def search(request):
+    profiles = get_user_model().objects.all()
+    return render(request, 'search.html', {'profiles':profiles})
+
+def search_org(request):
+    profiles = get_user_model().objects.all()
+    return render(request, 'search_org.html', {'profiles':profiles})
