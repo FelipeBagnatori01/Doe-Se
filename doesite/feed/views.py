@@ -94,6 +94,8 @@ def follow_org(request, user_id):
     # adicionar follow
     return redirect(profile_org)
 
+
+'''
 @login_required
 def institutes(request):
     new_institute = Institute()
@@ -108,6 +110,8 @@ def institutes(request):
     new_institute.description = request.POST.get('description')
     new_institute.save()
     return render(request, 'landing.html')
+'''
+
 
 @login_required    
 def user_login(request):
