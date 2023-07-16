@@ -4,7 +4,6 @@ from django.contrib.auth.models import Group, User
 from .models import *
 
 admin.site.unregister(Group)
-admin.site.register(Profile)
 admin.site.register(Post)
 
 class ProfileInLine(admin.StackedInline):
@@ -17,5 +16,4 @@ class UserAdmin(admin.ModelAdmin):
     
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-#admin.site.register(Profile)
 
