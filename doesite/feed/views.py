@@ -118,14 +118,17 @@ def user_login(request):
 def institution_login(request):
     return render(request, 'profile_org.html')
 
+@login_required
 def upload(request):
     form = UploadForm(request.POST, request.FILES)
     return render(request, 'make_post.html')
 
+@login_required
 def search(request):
     profiles = get_user_model().objects.all()
     return render(request, 'search.html', {'profiles':profiles})
 
+@login_required
 def search_org(request):
     profiles = get_user_model().objects.all()
     return render(request, 'search_org.html', {'profiles':profiles})
