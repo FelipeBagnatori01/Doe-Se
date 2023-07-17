@@ -2,6 +2,7 @@ from typing import Any
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 import json
 
 '''
@@ -35,6 +36,15 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        user_profile = Profile(user=instance)
+        user_profile.save()
+        user_profile.follow.set([instance.profile.id])
+
+post_save.connect(create_profile, sender=User)
 
 
 class Post(models.Model):
