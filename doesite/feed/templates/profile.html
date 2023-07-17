@@ -67,7 +67,7 @@
             </div>-->
             {% for post in posts %}
             <div id="template-post" class="post">
-                <a href="/profile_org/{{post.user}}" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">{{post.user}}</div><div class="at">@{{post.user}}</div></div></a>
+                <a href="/profile/{{post.user}}" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">{{post.user}}</div><div class="at">@{{post.user}}</div></div></a>
                 <div class="description-text">{{post.text}}</div>
                 {% if post.image %}
                     <img class="single-image" src="{{post.image.url}}">

@@ -29,7 +29,7 @@
         </div>
         <div id="novo-post" class="content-main">
             <div id="template-post" class="post">
-                <div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">Organização ABC</div><div class="at">@ONGabc</div></div>
+                <div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">{{user.username}}</div><div class="at">@{{user.username}}</div></div>
                 <form action="{% url 'create_post' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form}}

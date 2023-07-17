@@ -67,6 +67,7 @@
                 {% if post.image %}
                     <img class="single-image" src="{{post.image.url}}">
                 {% endif %}
+                <div>{{post.date}}</div>
                 <div class="post-buttons">
                     <a href="/like/{{post.id}}"><button class="post-btn"><i class="icon like fa fa-heart">&nbsp{{post.likes}}</i></button></a>
                     <!--<button class="post-btn"><i class="icon comm fa fa-comment">123</i></button>-->
