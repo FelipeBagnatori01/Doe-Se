@@ -76,7 +76,17 @@ def create_institution(request):
 def profile(request, user_id):
     posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id)).order_by("-date")
     profile = Profile.objects.get(user = get_user_model().objects.get(username=user_id))
-    print(profile)
+
+    if request.method == "POST":
+        current_user_profile = request.user.profile
+        action = request.POST["follow"]
+
+        if action == "unfollow":
+            current_user_profile.follow.remove(profile)
+        else:
+            current_user_profile.follow.add(profile)
+
+        current_user_profile.save()
     return render(request, 'profile.html', {'posts':posts, 'user_id':user_id, 'follow':follow, 'profile':profile})
 
 @login_required

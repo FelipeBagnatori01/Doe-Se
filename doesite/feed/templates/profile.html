@@ -35,10 +35,10 @@
                 <a href="/profile/{{user_id}}" class="profile-btn"><div class="post-creator"><img src="{% static 'feed/img/heart-png.png' %}"><div class="name">{{user_id}}</div><div class="at">@{{user_id}}</div></div></a>
                 <form method=POST>
                     {% csrf_token %}
-                    {% if profile in user.profile.follow.username.all %}
-                    <a href="/unfollow/{{user_id}}" class="profile-btn"><button class="follow" type="submit">Deixar de Seguir</button></a>
+                    {% if profile in user.profile.follow.all %}
+                    <button class="follow" name="follow" value ="unfollow" type="submit">Deixar de Seguir</button></a>
                     {% else %}
-                    <a href="/follow/{{user_id}}" class="profile-btn"><button class="follow" type="submit">Seguir</button></a>
+                    <button class="follow" name="follow" value ="follow" type="submit">Seguir</button></a>
                     {% endif %}
                 </form>
                 
