@@ -130,6 +130,13 @@ a:active { text-decoration: none; }
     margin-bottom: 15px;
 }
 
+.date {
+    position:relative;
+    float:right;
+    right:0px;
+    margin-top: 10px;
+}
+
 /********** Large devices only **********/
 @media (min-width: 1201px) {
     .content-bar {

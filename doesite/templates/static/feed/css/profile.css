@@ -148,7 +148,15 @@ a:active { text-decoration: none; }
 .follow:active {
     background-color: #ea8792;
 }
-
+.follow-form {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 0px;
+    margin-left: auto;
+    height: 100%;
+    width: 100%;
+    display: grid;
+}
 /********** Large devices only **********/
 @media (min-width: 1201px) {
     .content-bar {
