@@ -35,7 +35,7 @@ def create_post(request):
             new = form.save(commit=False)
             new.user = request.user
             new.save()
-        return redirect(show_feed_org)
+        return redirect(show_feed)
     return render(request, 'create_post.html', {'form' : UploadForm})
 
 @login_required
