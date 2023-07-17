@@ -75,8 +75,9 @@ def create_institution(request):
 @login_required
 def profile(request, user_id):
     posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id)).order_by("-date")
-    follow = False
-    return render(request, 'profile.html', {'posts':posts, 'user_id':user_id, 'follow':follow})
+    profile = Profile.objects.get(user = get_user_model().objects.get(username=user_id))
+    print(profile)
+    return render(request, 'profile.html', {'posts':posts, 'user_id':user_id, 'follow':follow, 'profile':profile})
 
 @login_required
 def profile_org(request, user_id):
