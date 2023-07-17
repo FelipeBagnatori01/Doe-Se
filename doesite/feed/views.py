@@ -14,7 +14,7 @@ import json
 @login_required
 def show_feed(request):
     if request.method == "GET":
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by("-date")
         return render(request, 'show_feed.html', {'posts':posts})
     elif request.method == "POST":
         return HttpResponse("Resposta ao post")
@@ -74,13 +74,13 @@ def create_institution(request):
 
 @login_required
 def profile(request, user_id):
-    posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id))
+    posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id)).order_by("-date")
     follow = False
     return render(request, 'profile.html', {'posts':posts, 'user_id':user_id, 'follow':follow})
 
 @login_required
 def profile_org(request, user_id):
-    posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id))
+    posts = Post.objects.filter(user=get_user_model().objects.get(username=user_id)).order_by("-date")
     follow = True
     return render(request, 'profile_org.html', {'posts':posts, 'user_id':user_id, 'follow':follow})
 
